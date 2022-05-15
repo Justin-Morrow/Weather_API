@@ -1,0 +1,12 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+.jumbotron {
+    background-color: lightblue;
+}
+
+.card{
+    /* padding-left: 25%; */
+}
