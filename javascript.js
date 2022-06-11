@@ -8,12 +8,20 @@ var cityForm = document.querySelector('#city-form');
 var cityInput = document.querySelector('#city-input');
 var todayContainer = document.getElementById('today');
 var cityHistoryContainer = document.getElementById('city-history');
+
+
 // var forecastContainer = document.querySelector('#5day-forecast');
 // Add timezone plugins to day.js
 dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
+
+
+
+
+
 function displaycityHistory() {
+  document.getElementById("option-1").textContent = cityHistory[0];
    // Start at end of history array and count down to show the most recent at the top.
    for (var i = cityHistory.length - 1; i >= 0; i--) {
     var btn = document.createElement('button');
@@ -87,10 +95,15 @@ function appendToHistory(city) {
     todayContainer.append(card);
   }
   function displayForecast (daily, timezone) {
-    return;
+  let time = daily[1].dt;
+  console.log("daily", daily);
+  document.getElementById("date-1").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
+  document.getElementById("temp-1").textContent = " Temp: " + daily[1].temp.day;
+  document.getElementById("wind-1").textContent = " Wind: " + daily[1].wind_speed;
+  document.getElementById("humidity-1").textContent = " Humidity: " + daily[1].humidity;
       // Create unix timestamps for start and end of 5 day forecast
-  var startDt = dayjs().tz(timezone).add(1, 'day').startOf('day').unix();
-  var endDt = dayjs().tz(timezone).add(6, 'day').startOf('day').unix();
+  // var startDt = dayjs().tz(timezone).add(1, 'day').startOf('day').unix();
+  // var endDt = dayjs().tz(timezone).add(6, 'day').startOf('day').unix();
 
   // var headingCol = document.createElement('div');
   // var heading = document.createElement('h4');
@@ -101,15 +114,15 @@ function appendToHistory(city) {
 
   // forecastContainer.innerHTML = '';
   // forecastContainer.append(headingCol);
-  for (var i = 0; i < dailyForecast.length; i++) {
+  // for (var i = 0; i < dailyForecast.length; i++) {
     // The api returns forecast data which may include 12pm on the same day and
     // always includes the next 7 days. The api documentation does not provide
     // information on the behavior for including the same day. Results may have
     // 7 or 8 items.
-    if (dailyForecast[i].dt >= startDt && dailyForecast[i].dt < endDt) {
-      displayForecastCard(dailyForecast[i], timezone);
-    }
-  }
+  //   if (dailyForecast[i].dt >= startDt && dailyForecast[i].dt < endDt) {
+  //     displayForecastCard(dailyForecast[i], timezone);
+  //   }
+  // }
   }
 function renderPage (city, data) {
         displayCurrentWeather(city, data.current, data.timezone);
@@ -154,8 +167,14 @@ function getCoords(search) {
       .catch(function (err) {
         console.error(err);
       });
+
+      
   }
-  
+  function handleCityHistory (event) {
+    let button = event.target
+    let city = button.getAttribute('data-search');
+    getCoords (city);
+  }
 function handleSearchFormSubmit(e) {
     // Don't continue if there is nothing in the search form
     console.log("search form submit");
@@ -171,3 +190,4 @@ function handleSearchFormSubmit(e) {
   }
 
 cityForm.addEventListener('submit', handleSearchFormSubmit);
+cityHistoryContainer.addEventListener('click', handleCityHistory);
