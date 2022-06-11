@@ -101,6 +101,27 @@ function appendToHistory(city) {
   document.getElementById("temp-1").textContent = " Temp: " + daily[1].temp.day;
   document.getElementById("wind-1").textContent = " Wind: " + daily[1].wind_speed;
   document.getElementById("humidity-1").textContent = " Humidity: " + daily[1].humidity;
+
+  document.getElementById("date-2").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
+  document.getElementById("temp-2").textContent = " Temp: " + daily[2].temp.day;
+  document.getElementById("wind-2").textContent = " Wind: " + daily[2].wind_speed;
+  document.getElementById("humidity-2").textContent = " Humidity: " + daily[2].humidity;
+
+  document.getElementById("date-3").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
+  document.getElementById("temp-3").textContent = " Temp: " + daily[3].temp.day;
+  document.getElementById("wind-3").textContent = " Wind: " + daily[3].wind_speed;
+  document.getElementById("humidity-3").textContent = " Humidity: " + daily[3].humidity;
+
+  document.getElementById("date-4").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
+  document.getElementById("temp-4").textContent = " Temp: " + daily[4].temp.day;
+  document.getElementById("wind-4").textContent = " Wind: " + daily[4].wind_speed;
+  document.getElementById("humidity-4").textContent = " Humidity: " + daily[4].humidity;
+
+  document.getElementById("date-5").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
+  document.getElementById("temp-5").textContent = " Temp: " + daily[5].temp.day;
+  document.getElementById("wind-5").textContent = " Wind: " + daily[5].wind_speed;
+  document.getElementById("humidity-5").textContent = " Humidity: " + daily[5].humidity;
+
       // Create unix timestamps for start and end of 5 day forecast
   // var startDt = dayjs().tz(timezone).add(1, 'day').startOf('day').unix();
   // var endDt = dayjs().tz(timezone).add(6, 'day').startOf('day').unix();
