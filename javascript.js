@@ -1,5 +1,10 @@
 // Global variables
 var cityHistory = [];
+let hist = localStorage.getItem('city-history');
+  if(hist) {
+    cityHistory = JSON.parse(hist);
+  }
+
 var weatherApiUrl= 'https://api.openweathermap.org';
 var ApiKey = 'ffd5835085c5c060761fc94438b898ef';
 // var ApiKey = '452691537bbf409c6544c02c76a1f6ad';
@@ -19,9 +24,10 @@ dayjs.extend(window.dayjs_plugin_timezone);
 
 
 
+displaycityHistory();
 
 function displaycityHistory() {
-  document.getElementById("option-1").textContent = cityHistory[0];
+  // document.getElementById("option-1").textContent = cityHistory[0];
    // Start at end of history array and count down to show the most recent at the top.
    for (var i = cityHistory.length - 1; i >= 0; i--) {
     var btn = document.createElement('button');
@@ -39,6 +45,7 @@ function appendToHistory(city) {
     // If there is no search term return the function
     if (cityHistory.indexOf(city) !== -1) {
       return;
+
     }
     cityHistory.push(city);
   
@@ -97,30 +104,35 @@ function appendToHistory(city) {
   function displayForecast (daily, timezone) {
   let time = daily[1].dt;
   console.log("daily", daily);
+
   document.getElementById("date-1").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
-  document.getElementById("temp-1").textContent = " Temp: " + daily[1].temp.day;
-  document.getElementById("wind-1").textContent = " Wind: " + daily[1].wind_speed;
-  document.getElementById("humidity-1").textContent = " Humidity: " + daily[1].humidity;
+  document.getElementById("temp-1").textContent = `Temp: ${daily[1].temp.day}°F`;
+  document.getElementById("wind-1").textContent = " Wind: " + daily[1].wind_speed + " MPH";
+  document.getElementById("humidity-1").textContent = " Humidity: " + daily[1].humidity + " %";
 
+  time = daily[2].dt;
   document.getElementById("date-2").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
-  document.getElementById("temp-2").textContent = " Temp: " + daily[2].temp.day;
-  document.getElementById("wind-2").textContent = " Wind: " + daily[2].wind_speed;
-  document.getElementById("humidity-2").textContent = " Humidity: " + daily[2].humidity;
+  document.getElementById("temp-2").textContent = `Temp: ${daily[2].temp.day}°F`;
+  document.getElementById("wind-2").textContent = " Wind: " + daily[2].wind_speed + " MPH" ;
+  document.getElementById("humidity-2").textContent = " Humidity: " + daily[2].humidity + " %";
 
+  time = daily[3].dt;
   document.getElementById("date-3").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
-  document.getElementById("temp-3").textContent = " Temp: " + daily[3].temp.day;
-  document.getElementById("wind-3").textContent = " Wind: " + daily[3].wind_speed;
-  document.getElementById("humidity-3").textContent = " Humidity: " + daily[3].humidity;
+  document.getElementById("temp-3").textContent = `Temp: ${daily[3].temp.day}°F`;
+  document.getElementById("wind-3").textContent = " Wind: " + daily[3].wind_speed + " MPH";
+  document.getElementById("humidity-3").textContent = " Humidity: " + daily[3].humidity + " %";
 
+  time = daily[4].dt;
   document.getElementById("date-4").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
-  document.getElementById("temp-4").textContent = " Temp: " + daily[4].temp.day;
-  document.getElementById("wind-4").textContent = " Wind: " + daily[4].wind_speed;
-  document.getElementById("humidity-4").textContent = " Humidity: " + daily[4].humidity;
+  document.getElementById("temp-4").textContent = `Temp: ${daily[4].temp.day}°F`;
+  document.getElementById("wind-4").textContent = " Wind: " + daily[4].wind_speed + " MPH";
+  document.getElementById("humidity-4").textContent = " Humidity: " + daily[4].humidity + " %";
 
+  time = daily[5].dt;
   document.getElementById("date-5").textContent = " Date: " + dayjs.unix(time).tz(timezone).format('M/D/YYYY');
-  document.getElementById("temp-5").textContent = " Temp: " + daily[5].temp.day;
-  document.getElementById("wind-5").textContent = " Wind: " + daily[5].wind_speed;
-  document.getElementById("humidity-5").textContent = " Humidity: " + daily[5].humidity;
+  document.getElementById("temp-5").textContent = `Temp: ${daily[5].temp.day}°F`;
+  document.getElementById("wind-5").textContent = " Wind: " + daily[5].wind_speed + " MPH";
+  document.getElementById("humidity-5").textContent = " Humidity: " + daily[5].humidity + " %";
 
       // Create unix timestamps for start and end of 5 day forecast
   // var startDt = dayjs().tz(timezone).add(1, 'day').startOf('day').unix();
