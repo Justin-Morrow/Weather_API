@@ -1,5 +1,7 @@
 # Code-Quiz
 
+![Thumbnail](/Weather_API/assets/readmescreenshot.png)
+
 ## Table of Contents
 
 - [Description](#Description)
@@ -19,6 +21,8 @@
 ## Description
 
 The project is an assignment that asks for the web developer to create a weather application that displays current weather, a five day forecast and a search history using the openweathermap API.
+
+The repostiory is https://github.com/Justin-Morrow/Weather_API and the deployed link is https://justin-morrow.github.io/Weather_API/
 
 ## Installation
 
