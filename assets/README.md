@@ -1,5 +1,5 @@
 # Code-Quiz
-![Thumbmail](/Weather_API/assets/images/Screen%20Shot%202022-06-19%20at%2012.51.23%20PM.png)
+![Thumbmail](screenshot.png)
 
 ## Table of Contents
 
