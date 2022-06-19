@@ -1,6 +1,6 @@
 # Code-Quiz
 
-![Thumbnail](/Weather_API/assets/images/readmescreenshot.png)
+![Thumbnail](/Weather_API/assets/images/readmescreenshot.jpg)
 
 ## Table of Contents
 
