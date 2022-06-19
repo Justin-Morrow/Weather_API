@@ -1,6 +1,6 @@
 # Code-Quiz
 
-![Thumbnail](/Weather_API/assets/images/readmescreenshot.jpg)
+![Thumbnail](/Weather_API/assets/images/Screen%20Shot%202022-06-19%20at%201.06.45%20PM.png)
 
 ## Table of Contents
 
